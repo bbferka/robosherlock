@@ -37,41 +37,41 @@ if(Caffe_FOUND)
 endif()
 
 #build the web annotations (Goggles only atm)
-if(PROTOBUF_FOUND AND PROTOBUF_PROTOC_EXECUTABLE)
-  find_package(PythonLibs)
-
-  include_directories(
-    ${CMAKE_CURRENT_BINARY_DIR}
-    ${Boost_INCLUDE_DIRS}
-    ${PYTHON_INCLUDE_DIRS}
-  )
-
-  PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
-    include/robosherlock/annotation/web/request.proto
-    include/robosherlock/annotation/web/response.proto
-    )
-
-  add_library(rs_web SHARED
-      src/web/goggles.cpp
-      ${PROTO_SRCS}
-    )
-  target_link_libraries(rs_web
-      ${OpenCV_LIBRARIES}
-      ${Boost_LIBRARIES}
-      ${PROTOBUF_LIBRARY}
-      ${catkin_LIBRARIES}
-      ${PYTHON_LIBRARIES}
-  )
-
-  rs_add_library(rs_gogglesAnnotator src/web/GogglesAnnotator.cpp)
-  target_link_libraries(rs_gogglesAnnotator rs_core rs_web)
-
-  install(
-    TARGETS rs_web
-            rs_gogglesAnnotator
-    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  )
-endif()
+#if(PROTOBUF_FOUND AND PROTOBUF_PROTOC_EXECUTABLE)
+#  find_package(PythonLibs)
+#
+#  include_directories(
+#    ${CMAKE_CURRENT_BINARY_DIR}
+#    ${Boost_INCLUDE_DIRS}
+#    ${PYTHON_INCLUDE_DIRS}
+#  )
+#
+#  PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
+#    include/robosherlock/annotation/web/request.proto
+#    include/robosherlock/annotation/web/response.proto
+#    )
+#
+#  add_library(rs_web SHARED
+#      src/web/goggles.cpp
+#      ${PROTO_SRCS}
+#    )
+#  target_link_libraries(rs_web
+#      ${OpenCV_LIBRARIES}
+#      ${Boost_LIBRARIES}
+#      ${PROTOBUF_LIBRARY}
+#      ${catkin_LIBRARIES}
+#      ${PYTHON_LIBRARIES}
+#  )
+#
+#  rs_add_library(rs_gogglesAnnotator src/web/GogglesAnnotator.cpp)
+#  target_link_libraries(rs_gogglesAnnotator rs_core rs_web)
+#
+#  install(
+#    TARGETS rs_web
+#            rs_gogglesAnnotator
+#    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+#  )
+#endif()
 
 install(
   TARGETS rs_Cluster3DGeometryAnnotator

@@ -32,7 +32,7 @@
 int preprocessingTest()
 {
 
-  UnicodeString ustrInputText;
+  icu::UnicodeString ustrInputText;
   cas->setDocumentText(uima::UnicodeStringRef(ustrInputText));
   std::cerr<<"processing CAS"<<std::endl;
 

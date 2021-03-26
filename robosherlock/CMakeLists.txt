@@ -80,7 +80,7 @@ endif()
 
 find_package(OpenCV REQUIRED)
 find_package(PCL REQUIRED)
-find_package(Boost REQUIRED COMPONENTS system thread date_time python)
+find_package(Boost REQUIRED COMPONENTS system thread date_time)
 
 find_package(APR REQUIRED)
 find_package(ICUUC REQUIRED)
@@ -182,16 +182,16 @@ generate_type_system()
 ## Sub Projects                                                               ##
 ################################################################################
 
-add_subdirectory(src/annotation)
+#add_subdirectory(src/annotation)
 add_subdirectory(src/core)
-add_subdirectory(src/detection)
+#add_subdirectory(src/detection)
 add_subdirectory(src/filter)
 add_subdirectory(src/io)
-add_subdirectory(src/recognition)
+#add_subdirectory(src/recognition)
 add_subdirectory(src/segmentation)
-add_subdirectory(src/segmentation/symmetrysegmentation)
+#add_subdirectory(src/segmentation/symmetrysegmentation)
 add_subdirectory(src/utils)
-add_subdirectory(src/tracking)
+#add_subdirectory(src/tracking)
 add_subdirectory(src/flowcontrol)
 add_subdirectory(src/queryanswering)
 

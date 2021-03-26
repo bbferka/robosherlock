@@ -109,7 +109,7 @@ void SceneCas::setFS(const char *name, const uima::FeatureStructure &fs)
   }
   const std::string mime = std::string("application/x-") + name;
 
-  view->setSofaDataArray(fs, UnicodeString::fromUTF8(mime));
+  view->setSofaDataArray(fs, icu::UnicodeString::fromUTF8(mime));
 }
 
 }
